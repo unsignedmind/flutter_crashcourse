@@ -1,26 +1,20 @@
-import 'package:cc_threehours/routes/routes.dart';
+import 'package:cc_threehours/features/app/presentation/app.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const App());
+  runApp(const Main());
 }
 
-class App extends StatefulWidget {
-  const App({super.key});
+class Main extends StatefulWidget {
+  const Main({super.key});
 
   @override
-  State<App> createState() => _AppState();
+  State<Main> createState() => _MainState();
 }
 
-class _AppState extends State<App> {
-  
+class _MainState extends State<Main> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      initialRoute: '/',
-      routes: Routes.materialRoutes,
-    );
+    return const App();
   }
 }
-

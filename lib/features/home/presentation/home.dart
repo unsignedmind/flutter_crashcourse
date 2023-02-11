@@ -1,4 +1,4 @@
-import 'package:cc_threehours/features/main/page-template.dart';
+import 'package:cc_threehours/features/shared/image-grid/image_grid.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -11,21 +11,19 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return PageTemplate(
-      bodyWidget: Column(
-        children: [
-          Expanded(
-            child: Container(
-              width: double.infinity,
-              height: double.infinity,
-              decoration: BoxDecoration(
-                color: Colors.amber.shade900,
-              ),
+    return Column(
+      children: [
+        Expanded(
+          child: Container(
+            width: double.infinity,
+            height: double.infinity,
+            decoration: BoxDecoration(
+              color: Colors.amber.shade900,
             ),
+            child: const ImageGrid(),
           ),
-        ],
-      ),
-      title: 'Home',
+        ),
+      ],
     );
   }
 }
