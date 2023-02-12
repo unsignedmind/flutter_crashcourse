@@ -1,7 +1,7 @@
 import 'package:cc_threehours/features/app/domain/app_screens.model.dart';
 import 'package:cc_threehours/features/app/domain/screen.model.dart';
 import 'package:cc_threehours/features/home/presentation/home.dart';
-import 'package:cc_threehours/features/messages/presentation/messages.dart';
+import 'package:cc_threehours/features/messages/presentation/messages_page.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatefulWidget {
@@ -15,7 +15,7 @@ class _AppState extends State<App> {
   int _currentIndex = 0;
   static final AppScreens screens = AppScreens([
     Screen('Home', const HomePage()),
-    Screen('Messages', const Messages()),
+    Screen('Messages', const MessagesPage()),
   ]);
   final _pageController = PageController(initialPage: 0);
 

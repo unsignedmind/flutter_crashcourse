@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Messages extends StatefulWidget {
-  const Messages({super.key});
+class MessagesPage extends StatefulWidget {
+  const MessagesPage({super.key});
 
   @override
-  State<Messages> createState() => _MessagesState();
+  State<MessagesPage> createState() => _MessagesPageState();
 }
 
-class _MessagesState extends State<Messages> {
+class _MessagesPageState extends State<MessagesPage> {
   @override
   Widget build(BuildContext context) {
     return Column(
