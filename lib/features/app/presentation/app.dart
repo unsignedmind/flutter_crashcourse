@@ -24,8 +24,41 @@ class _AppState extends State<App> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(
-          title: Text(screens.getTitle(_currentIndex)),
+        appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(80.0),
+          child: Container(
+            height: 120,
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: <Color>[
+                  Colors.redAccent,
+                  Colors.orangeAccent,
+                ],
+              ),
+            ),
+            child: SafeArea(
+              child: Center(
+                child: ListTile(
+                  title: Text(
+                    screens.getTitle(_currentIndex),
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  trailing: IconButton(
+                    icon: const Icon(
+                      Icons.search,
+                      size: 20,
+                    ),
+                    color: Colors.white,
+                    onPressed: () {},
+                  ),
+                ),
+              ),
+            ),
+          ),
         ),
         body: PageView(
           controller: _pageController,
