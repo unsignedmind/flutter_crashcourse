@@ -1,3 +1,4 @@
+import 'package:cc_threehours/features/app/domain/app_screens.model.dart';
 import 'package:cc_threehours/features/app/domain/screen.model.dart';
 import 'package:cc_threehours/features/home/presentation/home.dart';
 import 'package:cc_threehours/features/messages/presentation/messages.dart';
@@ -11,22 +12,30 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-  int navBarCurrentIndex = 0;
-  static final List<Screen> screens = [
+  int _currentIndex = 0;
+  static final AppScreens screens = AppScreens([
     Screen('Home', const HomePage()),
     Screen('Messages', const Messages()),
-  ];
+  ]);
+  final _pageController = PageController(initialPage: 0);
 
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: Text(screens[navBarCurrentIndex].tile),
+          title: Text(screens.getTitle(_currentIndex)),
         ),
-        body: screens[navBarCurrentIndex].widget,
+        body: PageView(
+          controller: _pageController,
+          onPageChanged: (newIndex) {
+            setState(() {
+              _currentIndex = newIndex;
+            });
+          },
+          children: screens.getWidgets(),
+        ),
         bottomNavigationBar: BottomNavigationBar(
           items: const [
             BottomNavigationBarItem(
@@ -38,11 +47,13 @@ class _AppState extends State<App> {
               label: 'Messages',
             ),
           ],
-          currentIndex: navBarCurrentIndex,
+          currentIndex: _currentIndex,
           onTap: (int index) {
-            setState(() {
-              navBarCurrentIndex = index;            
-            });
+            _pageController.animateToPage(
+              index,
+              duration: const Duration(milliseconds: 500),
+              curve: Curves.ease,
+            );
           },
         ),
       ),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Screen {
-  final String tile;
+  final String title;
   final Widget widget;
 
-  Screen(this.tile, this.widget);
+  Screen(this.title, this.widget);
 }
