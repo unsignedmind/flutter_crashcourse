@@ -1,4 +1,4 @@
-import 'package:cc_threehours/features/shared/image-grid/image_grid.dart';
+import 'package:cc_threehours/features/shared/image-grid/image_grid.widget.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {

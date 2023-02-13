@@ -1,4 +1,4 @@
-import 'package:cc_threehours/features/home/presentation/image_detail.dart';
+import 'package:cc_threehours/features/home/presentation/image_detail.widget.dart';
 import 'package:flutter/material.dart';
 
 class ImageGrid extends StatelessWidget {
